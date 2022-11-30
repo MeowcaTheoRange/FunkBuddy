@@ -1,0 +1,65 @@
+input:not([type=file]):not([type=radio]), textarea {
+  color: black;
+  width: calc(100% - 10px);
+}
+button {
+  color: black;
+}
+textarea {
+  resize: vertical;
+  line-height: 16px;
+  height: calc(16px * 10)
+}
+
+div#configForm {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  overflow: auto;
+  z-index: 8;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+#save {
+	position: fixed;
+	bottom: 40px;
+	right: 0;
+  background-color: #0004;
+  line-height: 20px;
+  height: 20px;
+  color: #fffa;
+  font-weight: bolder;
+  user-select: none;
+  z-index: 10;
+  padding: 0 4px;
+}
+
+#save:hover {
+  color: #fff;
+}
+
+#settings {
+  color: #fffa;
+}
+
+#close {
+  color: #f00a;
+}
+
+body {
+  background-color: black;
+}
+
+button.inset {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  text-decoration: underline;
+}
+
+button.inset:hover {
+  color: #aaa;
+}

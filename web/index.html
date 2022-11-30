@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>FunkBuddy</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body style="zoom: 0.5;">
+	<div class="drag-enable" id="handle" style="zoom: var(--charzoom);">:::</div>
+	<div id="settings" style="zoom: var(--charzoom);" onclick="ipcRenderer.invoke('navApp', 'web/config.html')">config</div>
+	<div id="close" style="zoom: var(--charzoom);" onclick="ipcRenderer.invoke('closeApp')">close</div>
+	<div id="shh" style="zoom: var(--charzoom);" onclick="document.body.classList.toggle('shh');">hide</div>
+	<div id="shell">
+	<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" id="char" />
+	</div>
+	<script src="script.js"></script>
+</body>
+
+</html>

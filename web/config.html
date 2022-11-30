@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="config.css">
+  </head>
+  <body style="zoom: 1;">
+    <div class="drag-enable" id="handle">:::</div>
+    <div id="settings" style="zoom: var(--charzoom);" onclick="if (saveForm()) ipcRenderer.invoke('navApp', 'web/index.html')">back + save</div>
+    <div id="close" style="zoom: var(--charzoom);" onclick="ipcRenderer.invoke('closeApp')">close</div>
+    <div id="configForm">
+      <h1>FunkBuddy config</h1>
+      <h2>Important</h2>
+      <label for="file">Character Image:</label><br />
+      <button id="file" onclick="ipcRenderer.invoke('promptForImage');">Look for path</button><input name="filePath" id="filePath"><br /><br />
+      <label for="xml">Character XML:</label><br />
+      <button id="xml" onclick="ipcRenderer.invoke('promptForXml')">Look for path</button><input name="xmlPath" id="xmlPath"><br /><br />
+      <label for="validAnims">Character Animations:</label>
+      <ul id="validAnims"><li><i>Import an XML!</i></li></ul><br />
+      <label for="idle">Idle Anim ID:</label><br />
+      <input type="text" name="idle" id="idle" placeholder="idle" /><br /><br />
+      <label for="binds">JSON Binds:<br>Format like "BIND": "ANIMATION ID"</label><br />
+      <textarea name="binds" id="binds" placeholder='{"KEY_LEFT": "left"...}'></textarea>
+      <h2>Character Look</h2>
+      <label for="fps">Character FPS:</label><br />
+      <input type="number" min="1" step="1" max="120" name="fps" id="fps" placeholder="15" /><br /><br />
+      <label for="zoom">Character Zoom:</label><br />
+      <input type="number" min="0.1" step="0.01" max="10" name="zoom" id="zoom" placeholder="0.5" />
+      <h2>Visual</h2>
+      <label for="opacity">Character Opacity:</label><br />
+      <input type="number" min="0" step="0.01" max="1" name="opacity" id="opacity" placeholder="1" /><br /><br />
+      <label>Character Alignment:</label><br />
+      <input type="radio" id="alignRadioLeft" name="horiz" value="left" />
+      <label for="alignRadioLeft">Left</label>
+      <input type="radio" id="alignRadioRight" name="horiz" value="right" />
+      <label for="alignRadioRight">Right</label>
+      <input type="radio" id="alignRadioUp" name="vert" value="up" />
+      <label for="alignRadioUp">Top</label>
+      <input type="radio" id="alignRadioDown" name="vert" value="down" />
+      <label for="alignRadioDown">Bottom</label>
+      <h2>Links</h2>
+      <button class="inset" onclick="ipcRenderer.invoke('openURL', 'https://www.gnu.org/licenses/gpl-3.0-standalone.html');">About the License...</button>
+      <button class="inset" onclick="ipcRenderer.invoke('openURL', 'https://github.com/MeowcaTheoRange/FunkBuddy');">GitHub Repository</button>
+      <button class="inset" onclick="ipcRenderer.invoke('openURL', 'https://gamebanana.com/tools/updates/11362');">GameBanana (check frequently for updates!)</button>
+      <pre></pre>
+    </div>
+    <script src="config.js" defer></script>
+  </body>
+</html>

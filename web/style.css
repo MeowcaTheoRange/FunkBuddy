@@ -1,0 +1,114 @@
+* {
+  font-family: monospace;
+  color: #fff;
+}
+
+#char {
+	object-fit: none;
+	position: relative;
+  left: 0;
+  top: 0;
+}
+
+#shell {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+body {
+  overflow: hidden;
+  background-color: #0000;
+}
+
+body.shh #handle, body.shh #settings, body.shh #close, body.shh #shh {
+  background-color: transparent;
+  color: transparent;
+  display: none;
+}
+
+.drag-enable {
+  -webkit-app-region: drag;
+}
+
+#handle {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+  width: 50vw;
+  background-color: #0004;
+  line-height: 20px;
+  height: 20px;
+  color: #FFF;
+  user-select: none;
+  z-index: 9;
+  padding: 0 4px;
+}
+
+#settings {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+  background-color: #0004;
+  line-height: 20px;
+  height: 20px;
+  color: #fff4;
+  font-weight: bolder;
+  user-select: none;
+  z-index: 10;
+  padding: 0 4px;
+}
+
+#settings:hover {
+  color: #fff;
+}
+
+#close {
+	position: absolute;
+	bottom: 20px;
+	right: 0;
+  background-color: #0004;
+  line-height: 20px;
+  height: 20px;
+  color: #f004;
+  font-weight: bolder;
+  user-select: none;
+  z-index: 10;
+  padding: 0 4px;
+}
+
+#close:hover {
+  color: #f00;
+}
+
+#shh {
+	position: absolute;
+	bottom: 40px;
+	right: 0;
+  background-color: #0004;
+  line-height: 20px;
+  height: 20px;
+  color: #fff4;
+  font-weight: bolder;
+  user-select: none;
+  z-index: 10;
+  padding: 0 4px;
+}
+
+body.shh #shh, body.shh #handle {
+  width: min-content;
+  display: inline-block;
+  bottom: 0;
+  z-index: 11;
+  background-color: #0001;
+  color: #fff4;
+}
+
+body.shh #shh::before {
+  content: "un";
+}
+
+#shh:hover {
+  background-color: #0004 !important;
+  color: #fff !important;
+}
