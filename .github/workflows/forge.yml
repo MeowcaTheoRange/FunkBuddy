@@ -1,0 +1,24 @@
+name: forge
+run-name: DO FORGE RUN LO!!!!!L
+on: []
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.18.1'
+      - run: npm install
+      - run: npm install yarn -g
+      - run: yarn run make
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.18.1'
+      - run: npm install
+      - run: npm install yarn -g
+      - run: yarn run make
