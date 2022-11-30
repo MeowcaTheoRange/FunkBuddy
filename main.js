@@ -26,6 +26,10 @@ function createWindow () {
     fs.mkdirSync(thePath);
   }
 
+  if (!fs.existsSync(path.join(thePath, "xmls"))) {
+    fs.mkdirSync(path.join(thePath, "xmls"));
+  }
+
   if (!fs.existsSync(path.join(thePath, "config.json"))) {
     fs.writeFileSync(path.join(thePath, "config.json"), JSON.stringify({
       "binds": {
@@ -51,9 +55,60 @@ function createWindow () {
     }, null, 2));
   }
 
+  if (!fs.existsSync(path.join(thePath, "presets.json"))) {
+    fs.writeFileSync(path.join(thePath, "presets.json"), JSON.stringify({
+      "jimarrows": {
+        name: "Jim Arrows",
+        binds: {
+          "A": "left",
+          "S": "down",
+          "W": "up",
+          "D": "right",
+          "ArrowLeft": "left",
+          "ArrowDown": "down",
+          "ArrowUp": "up",
+          "ArrowRight": "right",
+          "idle": "idle"
+        }
+      },
+      "jimaskl": {
+        name: "Jim ASKL",
+        binds: {
+          "A": "left",
+          "S": "down",
+          "K": "up",
+          "L": "right"
+        }
+      },
+      "jimdfjk": {
+        name: "Jim DFJK",
+        binds: {
+          "D": "left",
+          "F": "down",
+          "J": "up",
+          "K": "right"
+        }
+      },
+      "jimqwop": {
+        name: "Jim QWOP",
+        binds: {
+          "Q": "left",
+          "W": "down",
+          "O": "up",
+          "P": "right"
+        }
+      }
+    }, null, 2));
+  }
+
   if (!fs.existsSync(path.join(thePath, "char.png")) || !fs.existsSync(path.join(thePath, "char.xml"))) {
     fs.copyFileSync(path.join(app.getAppPath(), 'web', 'assets', 'jim.png'), path.join(thePath, "char.png"));
     fs.copyFileSync(path.join(app.getAppPath(), 'web', 'assets', 'jim.xml'), path.join(thePath, "char.xml"));
+  }
+
+  if (!fs.existsSync(path.join(thePath, "xmls", "jim.png")) || !fs.existsSync(path.join(thePath, "xmls", "jim.xml"))) {
+    fs.copyFileSync(path.join(app.getAppPath(), 'web', 'assets', 'jim.png'), path.join(thePath, "xmls", "jim.png"));
+    fs.copyFileSync(path.join(app.getAppPath(), 'web', 'assets', 'jim.xml'), path.join(thePath, "xmls", "jim.xml"));
   }
 
   ipcMain.handle('resizeToSprite', (e, w, h) => {
@@ -101,8 +156,9 @@ function createWindow () {
       if (err) alert("File error, stat " + fileval);
     });
   });
-  ipcMain.handle('writeConfig', (e, obj) => {
+  ipcMain.handle('writeConfig', (e, obj, binds) => {
     fs.writeFileSync(path.join(thePath, "config.json"), obj);
+    fs.writeFileSync(path.join(thePath, "presets.json"), binds);
   });
 
   ipcMain.handle('navApp', (e, obj) => {

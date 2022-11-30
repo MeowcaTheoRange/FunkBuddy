@@ -220,6 +220,7 @@ function doanimate(st) {
 }
 
 function theThing() {
+  if (anim == null || anim == undefined) ipcRenderer.invoke('navApp', 'web/config.html');
 	char.style.objectPosition = `-${anim[fn].x}px -${anim[fn].y}px`;
 	char.style.width = `${anim[fn].w}px`;
 	char.style.height = `${anim[fn].h}px`;

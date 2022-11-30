@@ -20,12 +20,16 @@
       <button id="file" onclick="ipcRenderer.invoke('promptForImage');">Look for path</button><input name="filePath" id="filePath"><br /><br />
       <label for="xml">Character XML:</label><br />
       <button id="xml" onclick="ipcRenderer.invoke('promptForXml')">Look for path</button><input name="xmlPath" id="xmlPath"><br /><br />
+      <button onclick="addImage()">Add To XML Folder...</button>
+      <div id="xmlPres"></div>
       <label for="validAnims">Character Animations:</label>
       <ul id="validAnims"><li><i>Import an XML!</i></li></ul><br />
       <label for="idle">Idle Anim ID:</label><br />
       <input type="text" name="idle" id="idle" placeholder="idle" /><br /><br />
       <label for="binds">JSON Binds:<br>Format like "BIND": "ANIMATION ID"</label><br />
       <textarea name="binds" id="binds" placeholder='{"KEY_LEFT": "left"...}'></textarea>
+      <button onclick="addPreset('#presetname')">Add to Bind Presets As...</button><input name="presetname" id="presetname" style="width: initial;">
+      <div id="presets"></div>
       <h2>Character Look</h2>
       <label for="fps">Character FPS:</label><br />
       <input type="number" min="1" step="1" max="120" name="fps" id="fps" placeholder="15" /><br /><br />

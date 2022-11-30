@@ -63,3 +63,7 @@ button.inset {
 button.inset:hover {
   color: #aaa;
 }
+
+div.bind {
+  display: inline-block;
+}
